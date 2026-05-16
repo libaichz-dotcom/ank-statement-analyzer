@@ -1,0 +1,12 @@
+# Nixpacks 配置 - Railway 自动部署
+[phases.setup]
+nixPkgs = ["nodejs_22", "python3"]
+
+[phases.install]
+cmds = ["npm install"]
+
+[start]
+cmd = "node server.js"
+
+[variables]
+PORT = "3000"
