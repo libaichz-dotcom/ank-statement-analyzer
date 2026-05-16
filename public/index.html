@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>银行流水分析系统</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-university"></i> 银行流水分析系统</h1>
+    </header>
+
+    <div class="main-content">
+      <!-- 上传区域 -->
+      <div class="upload-section">
+        <h2><i class="fas fa-upload"></i> 上传银行流水</h2>
+        <div class="upload-area" id="uploadArea">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p>拖拽文件到此处或点击上传</p>
+          <p class="file-types">支持格式：PDF、CSV、Excel</p>
+          <input type="file" id="fileInput" accept=".pdf,.csv,.xlsx,.xls" hidden>
+          <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+            <i class="fas fa-folder-open"></i> 选择文件
+          </button>
+        </div>
+        <div id="uploadProgress" class="progress" style="display: none;">
+          <div class="progress-bar"></div>
+          <p class="progress-text">正在上传和处理...</p>
+        </div>
+      </div>
+
+      <!-- 报告列表 -->
+      <div class="reports-section">
+        <h2><i class="fas fa-file-alt"></i> 报告列表</h2>
+        <div id="reportsList" class="reports-list">
+          <p class="empty-text">暂无报告，请先上传银行流水</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 报告详情弹窗 -->
+  <div id="reportModal" class="modal" style="display: none;">
+    <div class="modal-content modal-large">
+      <div class="modal-header">
+        <h3><i class="fas fa-chart-bar"></i> 报告详情</h3>
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="reportDetail">
+        <!-- 报告内容将动态加载 -->
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
